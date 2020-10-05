@@ -29,7 +29,7 @@ class CountriesBloc extends Bloc<CountriesEvent, CountriesState> {
         yield SuccessCountriesState(orginalList);
         return;
       }
-      final res = orginalList.where((element) => element.name.toLowerCase().indexOf(event.name.toLowerCase()) >= 0).toList();
+      final res = orginalList.where((element) => element.name.toLowerCase().indexOf(event.name.toLowerCase()) >= 0 || element.alpha3Code.toLowerCase().indexOf(event.name.toLowerCase()) >= 0).toList();
       if (res != null && res.length > 0) {
         yield SuccessCountriesState(res);
       } else {

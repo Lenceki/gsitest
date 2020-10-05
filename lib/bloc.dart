@@ -7,7 +7,6 @@ import 'package:gsi_test_app/repo.dart';
 
 class CountriesBloc extends Bloc<CountriesEvent, CountriesState> {
   RepoInterface repo;
-  List<CountryModel> filteredList;
   List<CountryModel> orginalList;
   CountriesBloc(this.repo) : super(NoneCountriesState());
 

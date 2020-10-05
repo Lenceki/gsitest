@@ -85,12 +85,33 @@ class _CountryDetailWidgetState extends State<CountryDetailWidget> {
                         ],
                       ),
                     ),
+                    countryDataWidget(tittle: "Capital", value: widget.country.capital, isFlexible: false),
+                    countryDataWidget(tittle: "Region", value: widget.country.region, isFlexible: false),
+                    countryDataWidget(tittle: "Abbv", value: widget.country.alpha3Code, isFlexible: false),
                     countryDataWidget(tittle: "Sub Region", value: widget.country.subregion),
                     countryDataWidget(tittle: "Code", value: widget.country.numericCode),
                     countryDataWidget(tittle: "Demonym", value: widget.country.demonym),
                     countryDataWidget(tittle: "Area", value: widget.country.area),
                     countryDataWidget(tittle: "Gini", value: widget.country.gini),
                     countryDataWidget(tittle: "Cioc", value: widget.country.cioc),
+
+
+                    countryDataWidget(tittle: "Calling codes", value: widget.country.callingCodes.reduce((value, element) => value + ', ' + element)),
+                    countryDataWidget(tittle: "Population,", value: widget.country.population),
+                    countryDataWidget(tittle: "Currencies", value: widget.country.currencies.length > 0 ? widget.country.currencies.map((e) => "${e.name}(${e.symbol})").reduce((value, element) => value + ', ' + element) : "none" ),
+                    countryDataWidget(tittle: "Languages", value: widget.country.languages.length > 0 ? widget.country.languages.map((e) => "${e.name}(${e.iso6391})").reduce((value, element) => value + ', ' + element) : "none" ),
+                    widget.country.latlng.length > 0 ?
+                    Row(
+                      children: <Widget>[
+                        countryDataWidget(tittle: "Latitude", value: widget.country.latlng[0], isFlexible: false ),
+                        SizedBox(
+                          width: 20,
+                        ),
+                        countryDataWidget(tittle: "Longitude", value: widget.country.latlng[1],  isFlexible: false ),
+                      ],
+                    ) : Container(),
+                    countryDataWidget(tittle: "Borders", value: widget.country.borders.length > 0 ? widget.country.borders.reduce((value, element) => value + ', ' + element) : "none" ),
+
                     countryDataWidget(tittle: "Region Bloc", value: widget.country.regionalBlocs.length > 0 ? widget.country.regionalBlocs.map((e) => "${e.name}(${e.acronym})").toList().reduce((value, element) => value +", " + element) : "none"),
                     countryDataWidget(tittle: "Timezones", value: widget.country.timezones.length > 0 ?  widget.country.timezones.reduce((value, element) => value +", " + element) : "none"),
                     countryDataWidget(tittle: "Timezones", value: widget.country.timezones.length > 0 ?  widget.country.timezones.reduce((value, element) => value +", " + element) : "none"),

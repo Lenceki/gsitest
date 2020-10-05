@@ -101,24 +101,6 @@ class _HomeWidgetState extends State<HomeWidget> {
                  ),
                ],
              ),
-
-
-
-             countryDataWidget(tittle: "Calling codes", value: data.callingCodes.reduce((value, element) => value + ', ' + element)),
-             countryDataWidget(tittle: "Population,", value: data.population),
-             countryDataWidget(tittle: "Currencies", value: data.currencies.length > 0 ? data.currencies.map((e) => "${e.name}(${e.symbol})").reduce((value, element) => value + ', ' + element) : "none" ),
-             countryDataWidget(tittle: "Languages", value: data.languages.length > 0 ? data.languages.map((e) => "${e.name}(${e.iso6391})").reduce((value, element) => value + ', ' + element) : "none" ),
-             data.latlng.length > 0 ?
-             Row(
-               children: <Widget>[
-                 countryDataWidget(tittle: "Latitude", value: data.latlng[0], isFlexible: false ),
-                 SizedBox(
-                   width: 20,
-                 ),
-                 countryDataWidget(tittle: "Longitude", value: data.latlng[1],  isFlexible: false ),
-               ],
-             ) : Container(),
-             countryDataWidget(tittle: "Borders", value: data.borders.length > 0 ? data.borders.reduce((value, element) => value + ', ' + element) : "none" ),
              Divider(height: 20,thickness: 2,)
            ],
          ),
